@@ -1,0 +1,80 @@
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">
+    Angular FlyNewShore
+  </a>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mt-4">
+      <div class="card mt-4">
+        <div class="card-body">
+          <div class="card-tittle">
+            INSERT INFORMATION
+          </div>            
+            <div class="form-group">
+              <div>
+                Origin:
+              </div>
+              <input type="text" [(ngModel)]="origin" name="origin" id="origin" placeholder="Insert Origin" 
+              class="form-control" maxlength="3" oninput="this.value = this.value.toUpperCase()" 
+              #name="ngModel" required>
+              <!-- <div *ngIf="origin.errors?.['minlength']">
+                Origin must be at least 3 characters long.
+              </div> -->
+            </div>
+            <div class="form-group">
+              <div>
+                Destination:
+              </div>
+              <input type="text" [(ngModel)]="destination" placeholder="Insert Destiny" class="form-control" maxlength="3"
+              oninput="this.value = this.value.toUpperCase()" required>
+            </div>            
+            <br>
+            <button (click)="GetJourney()" class="btn btn-primary">
+              Flights
+            </button>            
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <br>
+      <table class="table table-bordered table-striped table-hover">
+        <thead class="bg-light">
+          <tr>
+            <th scope="col">Origin</th>
+            <th scope="col">Destiny</th>
+            <th scope="col">Price</th>            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let flight of flightList">
+            <td>{{ flight.origin }}</td>
+            <td>{{ flight.destination }}</td>
+            <td>{{ flight.price }}</td>            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <br>
+      <table class="table table-bordered table-striped table-hover">
+        <thead class="bg-light">
+          <tr>
+            <th scope="col">Origin</th>
+            <th scope="col">Destiny</th>
+            <th scope="col">Price</th>            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let flight of flightDetail">
+            <td>{{ flight.origin }}</td>
+            <td>{{ flight.destination }}</td>
+            <td>{{ flight.price }}</td>            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
